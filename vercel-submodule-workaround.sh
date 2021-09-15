@@ -10,7 +10,7 @@ if [ "$GITHUB_ACCESS_TOKEN" == "" ]; then
   exit 1
 fi
 
-# stop vercel on error - don't let it build if something goes wrong
+# stop execution on error - don't let it build if something goes wrong
 set -e
 
 # get submodule commit
