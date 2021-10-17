@@ -27,13 +27,27 @@ Short and easy tutorial for using private submodules on Vercel
 
     **--ignore-scripts** ignores pre and post install scripts if you want the scripts to run delete this flag.
 
+- Tell Vercel to use vercel-install instead of the defalt install command
+
+    - project -> Settings -> General => Build & Development Settings
+
+    - in INSTALL COMMAND type 
+    
+    ```bash 
+    yarn vercel-install 
+    # or 
+    npm vercel-install
+    ```
+
+    - toggle OVERRIDE on
+
 - Create a Github access token
 
     - Settings -> Developer settings -> Personal access tokens
 
     - Generate new token
      
-    - set a note  (eg. vercel)
+    - set a note (eg. vercel)
 
     - set expiration to whatever you see fit (eg. No expiration)
 
@@ -45,7 +59,7 @@ Short and easy tutorial for using private submodules on Vercel
 
 - Add the token to Vercel Environment Variables
 
-    - project -> Settings -> Environment Variables
+    - Project -> Settings -> Environment Variables
 
     - add a new variable called GITHUB_ACCESS_TOKEN and with value of the token you just copied
 
