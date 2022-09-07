@@ -1,3 +1,4 @@
+#!/bin/sh
 # github submodule repo address without https:// prefix
 SUBMODULE_GITHUB=github.com/beeinger/vercel-private-submodule
 
@@ -6,7 +7,7 @@ SUBMODULE_PATH=library
 
 # github access token is necessary
 # add it to Environment Variables on Vercel
-if [ "$GITHUB_ACCESS_TOKEN" == "" ]; then
+if [ "$GITHUB_ACCESS_TOKEN" = "" ]; then
   echo "Error: GITHUB_ACCESS_TOKEN is empty"
   exit 1
 fi
@@ -15,7 +16,7 @@ fi
 set -e
 
 # get submodule commit
-output=`git submodule status --recursive` # get submodule info
+output=$(git submodule status --recursive) # get submodule info
 no_prefix=${output#*-} # get rid of the prefix
 COMMIT=${no_prefix% *} # get rid of the suffix
 
@@ -26,9 +27,9 @@ cd tmp # go into the tmp folder
 
 # checkout the current submodule commit
 git init # initialise empty repo
-git remote add origin https://$GITHUB_ACCESS_TOKEN@$SUBMODULE_GITHUB # add origin of the submodule
-git fetch --depth=1 origin $COMMIT # fetch only the required version
-git checkout $COMMIT # checkout on the right commit
+git remote add origin "https://$GITHUB_ACCESS_TOKEN@$SUBMODULE_GITHUB" # add origin of the submodule
+git fetch --depth=1 origin "$COMMIT" # fetch only the required version
+git checkout "$COMMIT" # checkout on the right commit
 
 # move the submodule from tmp to the submodule path
 cd .. # go folder up
