@@ -2,7 +2,39 @@
 
 Short and easy tutorial for using private submodules on Vercel
 
-## 📋 Step by step 🚀
+## 💡 [Approach 1 - .gitmodules]
+### 📋 Instructions 🚀
+
+Edit your `.gitmodules` to follow this schema: 
+
+```
+[submodule "<repo-name>"]
+path = <folder-name>
+url = https://<github-token>@github.com/<owner-name>/<repo-name>.git
+```
+
+**The important part is the `<github-token>` in `https://<github-token>@github.com/<owner-name>/<repo-name>.git`**
+
+You can use either a classic token or a fine-grained token with necessary permissions.
+
+> 💡 TIP: If you dont know how to get it [have a look at this](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+
+### 🤫 If you don't want to commit the token
+
+Use this trick - add `.gitmodules` to `.gitignore` and then put the whole contents of the `.gitmodules` in a GitHub Secret or a secret on Vercel, and then when installing dependencies and doing setup, do smthn like `echo '${{ secrets.GITMODULES }}' > .gitmodules`
+
+### 🔐 Best to use a fine-grained token with readonly access only to the repos you have as submodules.
+
+### 🎉 That's it! 🎉
+
+> 🤝🏽 Thanks @FrameMuse [Issue: #7]
+
+<br/>
+
+## 💡 [Approach 2 - Script] 
+
+### 📋 Step by step 🚀
 
 - copy the ./vercel-submodule-workaround.sh to the root of your project
 
@@ -63,7 +95,7 @@ Short and easy tutorial for using private submodules on Vercel
 
     - add a new variable called GITHUB_ACCESS_TOKEN and with value of the token you just copied
 
-## 🎉 That's it! 🎉
+### 🎉 That's it! 🎉
 
 <br/>
 
