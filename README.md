@@ -28,7 +28,7 @@ Use this trick - add `.gitmodules` to `.gitignore` and then put the whole conten
 
 ### 🎉 That's it! 🎉
 
-> 🤝🏽 Thanks @FrameMuse [Issue: #7]
+> 🤝🏽 Thanks [@FrameMuse](https://github.com/FrameMuse) [Issue: [#7](https://github.com/beeinger/vercel-private-submodule/issues/7)]
 
 <br/>
 
